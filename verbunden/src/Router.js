@@ -22,7 +22,7 @@ export default class Router extends Component {
                 <Routes>
                     <Route path="/" element={<Welcome/>}>
                         <Route index element={<Welcome/>}>
-                        <Route path="favoriteplaces" element={<Favorite />}>
+                        <Route path="/favoriteplaces" element={<Favorite />}>
                             <Route path=":favoriteplacesid" element={<Favorite/>}>
                             <Route path="new" element={<NewForm/>}>
                             </Route>

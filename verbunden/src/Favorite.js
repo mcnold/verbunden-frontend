@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import styles from './Styles'
 import NewForm from './NewForm'
 
-let baseUrl = "http://localhost:3000"
+let baseUrl = "http://localhost:8000"
 
 export default class Favorite extends Component {
     constructor(props) {
@@ -106,6 +106,39 @@ export default class Favorite extends Component {
             <>
             <h1>My Favorite Places</h1>
             <NewForm baseUrl={baseUrl} addFavoritePlaces={this.addFavoritePlaces}/>
+            <table>
+                <tbody>
+                    {this.state.favoritePlaces.map((place) => {
+                        return (
+                            <tr key={place._id}>
+                                <td>{place.name}</td>
+                                <td onClick={() =>{this.showEditForm(place)}}>Edit</td>
+                                <td onClick={() => this.deleteFavoritePlace(place._id)}>X</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </table>
+            {
+                this.state.modalOpen &&
+                <form onSubmit={this.handleSubmit}>
+                    <label>Url:</label>
+                    <input name="url" value={this.state.url} onChange={this.handleChange}/><br/>
+                    <label>Place:</label>
+                    <input name="place" value={this.state.place} onChange={this.handleChange}/><br/>
+                    <label>City:</label>
+                    <input name="city" value={this.state.city} onChange={this.handleChange}/><br/>
+                    <label>Country:</label>
+                    <input name="country" value={this.state.country} onChange={this.handleChange}/><br/>
+                    <label>Type:</label>
+                    <input name="type" value={this.state.type} onChange={this.handleChange}/><br/>
+                    <label>Url:</label>
+                    <input name="latitude" value={this.state.latitude} onChange={this.handleChange}/><br/>
+                    <label>Url:</label>
+                    <input name="longitude" value={this.state.longitude} onChange={this.handleChange}/><br/>
+
+                </form>
+            }
             </>
         )
     }

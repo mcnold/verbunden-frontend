@@ -21,7 +21,7 @@ const FavoritesComponent = {
     fontSize: "13px"
   }
 
-  const NavBar = {
+  const App = {
     width: "300px",
     Top: "40px",
     margin: "30px auto",
@@ -33,6 +33,6 @@ const FavoritesComponent = {
     FavoritesComponent: FavoritesComponent,
     Header: Header,
     ErrorMessage: ErrorMessage,
-    NavBar: NavBar,
+    App: App,
   }
   
