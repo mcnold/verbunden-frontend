@@ -4,14 +4,16 @@ export default class Welcome extends Component {
         super(props)
         this.state = {
             userLoggedIn: true,
+            username: ''
         }
     }
+    
     
     render() {
         return(
             <>
     
-            <h1> Welcome, {this.props.username}.</h1>
+            <h1> Welcome, {this.username}.</h1>
            
             </>
         )

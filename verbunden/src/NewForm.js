@@ -57,10 +57,10 @@ export default class NewForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        fetch(this.props.baseUrl + '/favoriteplaces', {
+        fetch(this.props.baseUrl + '/favoriteplaces/', {
             method: 'POST',
             credentials: 'include',
-            body: JSON.stringify({place: this.state.place, url: this.state.url}),
+            body: JSON.stringify({place: this.state.place, url: this.state.url, city: this.state.city, country: this.state.country, type: this.state.type, latitude: this.state.latitude, longitude: this.state.longitude}),
             headers: {
                 'Content-Type':'application/json'
             },
@@ -99,7 +99,7 @@ export default class NewForm extends Component {
                 <input type="text" id="latitude" onChange={ (e) => this.handleLatChange(e)} value={this.state.latitude}/>
                 <label htmlFor="longitude">Longitude:</label>
                 <input type="text" id="longitude" onChange={ (e) => this.handleLongChange(e)} value={this.state.longitude}/>
-                <input type="submit" value="Add a Favorite Place"></input>
+                <input type="submit" value="Add a Favorite"></input>
             </form>
             </>
         )

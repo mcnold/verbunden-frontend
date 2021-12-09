@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import styles from './Styles'
 import NewForm from './NewForm'
+import Geolocation from './Geolocation'
 
 let baseUrl = "http://localhost:8000"
 
@@ -14,6 +15,11 @@ export default class Favorite extends Component {
             favoriteToBeEdited: {},
             url: '',
             place: '',
+            city: '',
+            country: '',
+            type: '',
+            latitude: '',
+            longitude: '',
             userLoggedIn: true
 
         }
@@ -61,6 +67,11 @@ export default class Favorite extends Component {
                 body: JSON.stringify({
                     url: e.target.url.value,
                     place: e.target.place.value,
+                    city: e.target.city.value,
+                    country: e.target.country.value,
+                    type: e.target.type.value,
+                    latitude: e.target.latitude.value,
+                    longitude: e.target.longitude.value
 
                 }),
                 headers: {
@@ -95,6 +106,11 @@ export default class Favorite extends Component {
             modalOpen: true,
             url: favoritePlaces.url,
             place: favoritePlaces.place,
+            city: favoritePlaces.city,
+            country: favoritePlaces.country,
+            type: favoritePlaces.type,
+            latitude: favoritePlaces.latitude,
+            longitude: favoritePlaces.longitude,
             favoriteToBeEdited: favoritePlaces
         })
     }
@@ -102,18 +118,20 @@ export default class Favorite extends Component {
         this.getFavoritePlaces()
     }
     render() {
+        
         return (
             <>
             <h1>My Favorite Places</h1>
             <NewForm baseUrl={baseUrl} addFavoritePlaces={this.addFavoritePlaces}/>
+            {/* <Geolocation/> */}
             <table>
                 <tbody>
-                    {this.state.favoritePlaces.map((place) => {
+                    {this.state.favoritePlaces.map((favoriteplace) => {
                         return (
-                            <tr key={place._id}>
-                                <td>{place.name}</td>
-                                <td onClick={() =>{this.showEditForm(place)}}>Edit</td>
-                                <td onClick={() => this.deleteFavoritePlace(place._id)}>X</td>
+                            <tr key={favoriteplace._id}>
+                                <td>{favoriteplace.place}</td>
+                                <td onClick={() =>{this.showEditForm(favoriteplace)}}>Edit</td>
+                                <td onClick={() => this.deleteFavoritePlace(favoriteplace._id)}>X</td>
                             </tr>
                         )
                     })}
