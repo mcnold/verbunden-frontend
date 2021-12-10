@@ -22,6 +22,16 @@ export default class Geolocation extends Component {
                 console.log("Latitude is: ", position.coords.latitude)
                 console.log("Longitude is: ", position.coords.longitude)
             }
+        }else{
+            console.log("Not Available")
+        }
+
+
+
+    }
+    updateGeolocation() {
+        if("geolocation" in navigator) {
+            console.log("Available")
             navigator.geolocation.watchPosition = (position) => {
                 this.setState = {
                     latitude: position.coords.latitude,
@@ -37,12 +47,14 @@ export default class Geolocation extends Component {
     }
     componentDidMount() {
         this.getGeolocation()
+        this.updateGeolocation()
     }
     render() {
         return (
             <div>
                 <td onClick={() =>{this.getGeolocation()}}>Find Me</td>
-                <h4>Your position is {this.latitude}, {this.longitude}</h4>
+                <td onClick={() =>{this.updateGeolocation()}}>Update My Location</td>
+                <h4>My position is {this.state.latitude}, {this.state.longitude}</h4>
             </div>
         )
     }

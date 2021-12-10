@@ -123,15 +123,14 @@ export default class Favorite extends Component {
             <>
             <h1>My Favorite Places</h1>
             <NewForm baseUrl={baseUrl} addFavoritePlaces={this.addFavoritePlaces}/>
-            {/* <Geolocation/> */}
             <table>
                 <tbody>
-                    {this.state.favoritePlaces.map((favoriteplace) => {
+                    {this.state.favoritePlaces.map((favoritePlaces) => {
                         return (
-                            <tr key={favoriteplace._id}>
-                                <td>{favoriteplace.place}</td>
-                                <td onClick={() =>{this.showEditForm(favoriteplace)}}>Edit</td>
-                                <td onClick={() => this.deleteFavoritePlace(favoriteplace._id)}>X</td>
+                            <tr key={favoritePlaces._id}>
+                                <td>{favoritePlaces.place}</td>
+                                <td onClick={() =>{this.showEditForm(favoritePlaces)}}>Edit</td>
+                                <td onClick={() => {this.deleteFavoritePlace(favoritePlaces._id)}}>X</td>
                             </tr>
                         )
                     })}

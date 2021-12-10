@@ -7,6 +7,7 @@ import Welcome from './Welcome'
 import Favorite from './Favorite'
 import About from './About'
 import LogOut from './LogOut'
+import PointsOfInterest from './PointsOfInterest'
 
 export default class App extends Component {
     constructor(props) {
@@ -27,9 +28,11 @@ export default class App extends Component {
                 <nav>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
+                <Link to="/welcome">MyLanding</Link>
                 <Link to="/users/register">Register</Link>
                 <Link to="/users/login">Login</Link>
                 <Link to="/favoriteplaces">Favorite Places</Link>
+                <Link to="/pointsofinterest">Points of Interest</Link>
                 <Link to="/logout">LogOut</Link>
                 </nav>
                 <Routes>
@@ -39,8 +42,10 @@ export default class App extends Component {
                     <Route path="/users/register" element={<Register/>}/>
                     <Route path="users/login" element={<Login/>}/>
                     <Route path="favoriteplaces" element={<Favorite/>}/>
+                    <Route path="/pointsofinterest" element={<PointsOfInterest/>}/>
                     <Route path="/logout" element={<LogOut/>}/>
                 </Routes>
+                <div>Footer</div>
 
             </Router>
             

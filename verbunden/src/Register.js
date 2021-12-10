@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import './App.css'
+import {useNavigate} from 'react-router-dom'
 
 let baseUrl = 'http://localhost:8000'
 
@@ -40,7 +41,7 @@ export default class Register extends Component {
         }
     }
     render() {
- 
+   
     return (
         <>
         <form onSubmit={this.register}>
