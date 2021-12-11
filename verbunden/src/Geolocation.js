@@ -56,7 +56,7 @@ export default class Geolocation extends Component {
             <div>
                 <td onClick={() =>{this.getGeolocation()}}>Find Me</td>
                 <td onClick={() =>{this.updateGeolocation()}}>Update My Location</td>
-                <h4>My position is {this.latitude}, {this.longitude}</h4>
+                <h4>My position is {this.state.latitude}, {this.state.longitude}</h4>
             </div>
         )
     }

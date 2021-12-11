@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import styled from 'styled-components'
 import styles from './Styles'
 import NewForm from './NewForm'
-import Geolocation from './Geolocation'
+import {Link} from 'react-router-dom'
 
 let baseUrl = "http://localhost:8000"
 
@@ -60,7 +60,7 @@ export default class Favorite extends Component {
     }
     handleSubmit = async (e) => {
         e.preventDefault()
-        const url = baseUrl + "/favoriteplaces/" + this.state.favoriteToBeEdited._id
+        const url = baseUrl + "/favoriteplaces/" + this.state.favoriteToBeEdited
         try{
             const response = await fetch ( url, {
                 method: 'PUT',
@@ -80,8 +80,10 @@ export default class Favorite extends Component {
             })
 
             if (response.status === 200) {
-                const updatedFavoritePlace = await response.json()
-                const findIndex = this.state.favoritePlaces.findIndex(favoritePlaces => favoritePlaces._id === updatedFavoritePlace._id)
+                const data = await response.json()
+                const updatedFavoritePlace = data.data
+                console.log(updatedFavoritePlace)
+                const findIndex = this.state.favoritePlaces.findIndex(favoritePlaces => favoritePlaces.id === updatedFavoritePlace.id)
                 const copyFavoritePlaces = [...this.state.favoritePlaces]
                 copyFavoritePlaces[findIndex] = updatedFavoritePlace
                 this.setState({
@@ -118,7 +120,7 @@ export default class Favorite extends Component {
         this.getFavoritePlaces()
     }
     render() {
-        
+        console.log(this.state.favoritePlaces)
         return (
             <>
             <h1>My Favorite Places</h1>
@@ -127,10 +129,10 @@ export default class Favorite extends Component {
                 <tbody>
                     {this.state.favoritePlaces.map((favoritePlaces) => {
                         return (
-                            <tr key={favoritePlaces._id}>
-                                <td>{favoritePlaces.place}</td>
-                                <td onClick={() =>{this.showEditForm(favoritePlaces)}}>Edit</td>
-                                <td onClick={() => {this.deleteFavoritePlace(favoritePlaces._id)}}>X</td>
+                            <tr key={favoritePlaces.id}>
+                                <td><Link to={`/favoriteplaces/${favoritePlaces.id}`}>{favoritePlaces.place}</Link></td>
+                                <td onClick={() =>{this.showEditForm(favoritePlaces.id)}}>Edit</td>
+                                <td onClick={() => {this.deleteFavoritePlace(favoritePlaces.id)}}>X</td>
                             </tr>
                         )
                     })}
@@ -149,11 +151,11 @@ export default class Favorite extends Component {
                     <input name="country" value={this.state.country} onChange={this.handleChange}/><br/>
                     <label>Type:</label>
                     <input name="type" value={this.state.type} onChange={this.handleChange}/><br/>
-                    <label>Url:</label>
+                    <label>Latitude:</label>
                     <input name="latitude" value={this.state.latitude} onChange={this.handleChange}/><br/>
-                    <label>Url:</label>
+                    <label>Longitude:</label>
                     <input name="longitude" value={this.state.longitude} onChange={this.handleChange}/><br/>
-
+                    <input type="submit" value="Make Changes"></input>
                 </form>
             }
             </>

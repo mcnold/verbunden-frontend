@@ -60,7 +60,7 @@ export default class NewForm extends Component {
         fetch(this.props.baseUrl + '/favoriteplaces/', {
             method: 'POST',
             credentials: 'include',
-            body: JSON.stringify({place: this.state.place, url: this.state.url, city: this.state.city, country: this.state.country, type: this.state.type, latitude: this.state.latitude, longitude: this.state.longitude}),
+            body: JSON.stringify({url: this.state.url, place: this.state.place, city: this.state.city, country: this.state.country, type: this.state.type, latitude: this.state.latitude, longitude: this.state.longitude}),
             headers: {
                 'Content-Type':'application/json'
             },
