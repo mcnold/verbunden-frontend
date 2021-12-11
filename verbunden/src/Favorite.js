@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import styles from './Styles'
 import NewForm from './NewForm'
 import {Link} from 'react-router-dom'
+import Place from './Place'
 
 let baseUrl = "http://localhost:8000"
 

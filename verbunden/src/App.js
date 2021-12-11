@@ -8,6 +8,7 @@ import Favorite from './Favorite'
 import About from './About'
 import LogOut from './LogOut'
 import PointsOfInterest from './PointsOfInterest'
+import Place from './Place'
 
 export default class App extends Component {
     constructor(props) {
@@ -18,7 +19,14 @@ export default class App extends Component {
             password: '',
             favoritePlaces: [],
             modalOpen: false,
-            userLoggedIn: false
+            userLoggedIn: false,
+            url: '',
+            place: '',
+            city: '',
+            country: '',
+            type: '',
+            latitude: '',
+            longitude: ''
         }
     }
 
@@ -44,6 +52,7 @@ export default class App extends Component {
                     <Route path="favoriteplaces" element={<Favorite/>}/>
                     <Route path="/pointsofinterest" element={<PointsOfInterest/>}/>
                     <Route path="/logout" element={<LogOut/>}/>
+                    <Route path="/favoriteplaces/:id" element={<Place/>}/>
                 </Routes>
                 <div>Footer</div>
 

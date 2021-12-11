@@ -6,7 +6,8 @@ export default class Geolocation extends Component {
         this.state = {
             userLoggedIn : true,
             latitude: '',
-            longitude: ''
+            longitude: '',
+            isLoading: true
 
         }
     }
@@ -15,14 +16,21 @@ export default class Geolocation extends Component {
         if("geolocation" in navigator) {
             console.log("Available")
             navigator.geolocation.getCurrentPosition((position)=> {
-                this.setState = {
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude
-                }
-                console.log("Latitude is: ", position.coords.latitude)
-                console.log("Longitude is: ", position.coords.longitude)
+                const currlat = position.coords.latitude
+                const currlong = position.coords.longitude
+                this.setState( {
+                    latitude: currlat,
+                    longitude: currlong
+                }, () => {
+                    this.setState( {
+                        isLoading: false
+                    })
+                })
+                console.log("Latitude is: ", currlat)
+                console.log("Longitude is: ", currlong)
             })
             
+        
             
         }else{
             console.log("Not Available")
@@ -52,11 +60,17 @@ export default class Geolocation extends Component {
         this.updateGeolocation()
     }
     render() {
+        console.log(this.state)
+
         return (
             <div>
                 <td onClick={() =>{this.getGeolocation()}}>Find Me</td>
                 <td onClick={() =>{this.updateGeolocation()}}>Update My Location</td>
-                <h4>My position is {this.state.latitude}, {this.state.longitude}</h4>
+                {
+                    this.state.isLoading ? "Loading...":
+                    <h4>My position is {this.state.latitude}, {this.state.longitude}</h4>
+                }
+                
             </div>
         )
     }

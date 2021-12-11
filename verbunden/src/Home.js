@@ -10,7 +10,7 @@ export default class Home extends Component {
     render() {
         return (
             <>
-            <h1>verbunden</h1>
+            <h1>Verbunden</h1>
             <h2>see the world a little more closely</h2>
             </>
         )

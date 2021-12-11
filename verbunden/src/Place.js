@@ -1,11 +1,46 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect} from 'react'
+import {Link, useParams} from 'react-router-dom'
 
+let baseUrl = "http://localhost:8000"
 
-export default class Place extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            userLoggedIn: true
+export default function Place() {
+    const [place, setPlace] = useState(null)
+    let {id} = useParams()
+    useEffect(() => {
+        fetch(baseUrl + '/favoriteplaces/'+ id, {
+          credentials: 'include'
+        })
+        .then(res => {
+          if(res.status === 200) {
+            return res.json()
+          } else {
+            return []
+          }
+        }).then(data => {
+          console.log(data)
+          setPlace(data.data)
+        })
+      }, [])
+    
+    
+
+    
+    return ( 
+        <>
+        {place ? 
+            <>
+                <h1>{place.place}</h1>
+                <h2>{place.city}</h2>
+                <h2>{place.country}</h2>
+                <h3>{place.type}</h3>
+                <p>{place.latitude}, {place.longitude}</p>
+                <img src={place.url} alt="img"></img>
+                <Link to="/favoriteplaces">Back to Favorites</Link>
+            </> 
+            : null
         }
-    }
+
+        </>        
+    )
+
 }
