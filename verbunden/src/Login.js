@@ -92,6 +92,7 @@ export default class App extends Component {
             <LightSpeed left>
             <input type="password" id="password" name="password"></input>
             </LightSpeed>
+            <br/>
             <input type="submit" value="Login"></input>
         </form>
                 {

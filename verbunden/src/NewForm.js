@@ -117,6 +117,7 @@ export default class NewForm extends Component {
                 <Lightspeed left>
                 <input type="text" id="longitude" onChange={ (e) => this.handleLongChange(e)} value={this.state.longitude}/>
                 </Lightspeed>
+                <br/>
                 <input type="submit" value="Add a Favorite"></input>
             </form>
             </>

@@ -63,6 +63,7 @@ export default class Register extends Component {
             <Lightspeed right>
             <input type="password" id="password" name="password"></input>
             </Lightspeed>
+            <br/>
             <input type="submit" value="Register"></input>
         </form>
 
