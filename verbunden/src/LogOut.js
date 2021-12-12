@@ -20,8 +20,10 @@ export default class Logout extends Component {
             <>
             <h1>See you on your next journey!</h1>
             <img src={img} className="globe" alt="globe"></img>
-            <button className="btn" onClick={this.logoutUser}>Log Out</button>
-
+            <button className="logbtn" onClick={this.logoutUser}>Log Out</button>
+            {
+                    this.state.userLoggedIn ? null : <h3>You are now logged out.</h3>
+                }
             </>
         )
     }

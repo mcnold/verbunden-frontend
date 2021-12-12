@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import './App.css'
 import {useNavigate} from 'react-router-dom'
+import Slide from 'react-reveal/Slide'
+import Lightspeed from 'react-reveal/LightSpeed'
 
 let baseUrl = 'http://localhost:8000'
 
@@ -45,14 +47,22 @@ export default class Register extends Component {
    
     return (
         <>
+        <Slide left>
         <h1>Register</h1>
+        </Slide>
         <form onSubmit={this.register}>
             <label htmlFor="email">email:</label>
+            <Lightspeed right>
             <input type="text" id="email" name="email"></input>
+            </Lightspeed>
             <label htmlFor="name">name:</label>
+            <Lightspeed left>
             <input type="text" id="username" name="username"></input>
+            </Lightspeed>
             <label htmlFor="password">password:</label>
+            <Lightspeed right>
             <input type="password" id="password" name="password"></input>
+            </Lightspeed>
             <input type="submit" value="Register"></input>
         </form>
 

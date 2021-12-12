@@ -11,6 +11,8 @@ import PointsOfInterest from './PointsOfInterest'
 import Place from './Place'
 import './App.css'
 import Fade from 'react-reveal/Fade'
+import Video from './Video'
+
 
 export default class App extends Component {
     constructor(props) {
@@ -45,6 +47,7 @@ export default class App extends Component {
                 <Link to="/users/login">Login</Link>
                 <Link to="/favoriteplaces">Favorite Places</Link>
                 <Link to="/pointsofinterest">Points of Interest</Link>
+                <Link to="/video">Concierge</Link>
                 <Link to="/logout">LogOut</Link>
                 </nav>
                 </header>
@@ -59,6 +62,7 @@ export default class App extends Component {
                     <Route path="/pointsofinterest" element={<PointsOfInterest/>}/>
                     <Route path="/logout" element={<LogOut/>}/>
                     <Route path="/favoriteplaces/:id" element={<Place/>}/>
+                    <Route path="/video" element={<Video/>}/>
                 </Routes>
                 <footer>©2021 Michele Godleske. All Rights Reserved.</footer>
 

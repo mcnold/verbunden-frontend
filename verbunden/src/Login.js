@@ -1,6 +1,10 @@
 import React, {Component} from 'react'
 import Favorite from './Favorite'
+import Slide from 'react-reveal/Slide'
+import LightSpeed from 'react-reveal/LightSpeed'
+
 let baseUrl = 'http://localhost:8000'
+
 
 export default class App extends Component {
     constructor(props) {
@@ -72,14 +76,22 @@ export default class App extends Component {
         
     return (
         <>
+        <Slide right>
         <h1>Login</h1>
+        </Slide>
         <form onSubmit={this.loginUser}>
             <label htmlFor="email">email:</label>
+            <LightSpeed left>
             <input type="text" id="email" name="email"></input>
+            </LightSpeed>
             <label htmlFor="name">name:</label>
+            <LightSpeed right>
             <input type="text" id="username" name="username"></input>
+            </LightSpeed>
             <label htmlFor="password">password:</label>
+            <LightSpeed left>
             <input type="password" id="password" name="password"></input>
+            </LightSpeed>
             <input type="submit" value="Login"></input>
         </form>
                 {

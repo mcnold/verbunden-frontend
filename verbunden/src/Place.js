@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams} from 'react-router-dom'
+import Fade from 'react-reveal/Fade'
 
 let baseUrl = "http://localhost:8000"
 
@@ -29,6 +30,7 @@ export default function Place() {
         <>
         {place ? 
             <>
+                <Fade bottom>
                 <h1>{place.place}</h1>
                 <h2>{place.city}</h2>
                 <h2>{place.country}</h2>
@@ -36,6 +38,7 @@ export default function Place() {
                 <p>{place.latitude}, {place.longitude}</p>
                 <img src={place.url} alt="img" className="Image"></img>
                 <Link to="/favoriteplaces"><h3>Back to Favorites</h3></Link>
+                </Fade>
             </> 
             : null
         }
