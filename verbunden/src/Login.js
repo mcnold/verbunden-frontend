@@ -72,6 +72,7 @@ export default class App extends Component {
         
     return (
         <>
+        <h1>Login</h1>
         <form onSubmit={this.loginUser}>
             <label htmlFor="email">email:</label>
             <input type="text" id="email" name="email"></input>

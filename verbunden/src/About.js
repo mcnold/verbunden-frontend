@@ -15,15 +15,14 @@ export default class About extends Component {
 
             <p>
                 Verbunden is a travel concierge service that lets you connect with local
-                guides, virtually, at any time.<p/><br/>
+                guides, virtually, at any time.<br/>
             
-            <p>
                 Get local secrets, the tips on best spots,
                 and everything you would want with a local tour guide on demand through
-                our application.</p><br/>
-            <p>
+                our application.<br/>
+    
                 More of the self sufficient type? Track local points of interest to explore.
-                Track places you've visited, and store them as a virtual passport stamp!</p><br/>
+                Track places you've visited, and store them as a virtual passport stamp!<br/>
 
                 You want to see the world a little more closely. We can definitely help with that.
             </p>

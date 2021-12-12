@@ -44,6 +44,7 @@ export default class Register extends Component {
    
     return (
         <>
+        <h1>Register</h1>
         <form onSubmit={this.register}>
             <label htmlFor="email">email:</label>
             <input type="text" id="email" name="email"></input>

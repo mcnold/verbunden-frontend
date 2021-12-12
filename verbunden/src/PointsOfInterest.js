@@ -1,5 +1,11 @@
 import React, {Component} from 'react'
 import Geolocation from './Geolocation'
+import Amadeus from 'amadeus'
+
+const amadeus = new Amadeus({
+    clientId: 'M3RJq3uoqlOZYlK0g9Eau2AVrvCwuXgx',
+    clientSecret: 'aVf293vaVRV4aHDK'
+  });
 
 export default class POI extends Component {
     constructor(props) {
@@ -54,6 +60,7 @@ export default class POI extends Component {
     render() {
         return (
             <>
+            <h1>Points of Interest</h1>
             <Geolocation favoritePlaces={this.state.favoritePlaces}/>
             <form onSubmit={this.getPOI}>
             <label>Find Points of Interest(Lat,Long)</label>

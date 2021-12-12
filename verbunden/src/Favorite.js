@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
-import styles from './Styles'
 import NewForm from './NewForm'
 import {Link} from 'react-router-dom'
 import Place from './Place'
+
 
 let baseUrl = "http://localhost:8000"
 
@@ -126,6 +126,7 @@ export default class Favorite extends Component {
             <>
             <h1>My Favorite Places</h1>
             <NewForm baseUrl={baseUrl} addFavoritePlaces={this.addFavoritePlaces}/>
+            
             <table>
                 <tbody>
                     {this.state.favoritePlaces.map((favoritePlaces) => {

@@ -9,6 +9,7 @@ import About from './About'
 import LogOut from './LogOut'
 import PointsOfInterest from './PointsOfInterest'
 import Place from './Place'
+import './App.css'
 
 export default class App extends Component {
     constructor(props) {
@@ -33,6 +34,7 @@ export default class App extends Component {
     render() {
         return (
             <Router>
+                <header>
                 <nav>
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
@@ -43,6 +45,7 @@ export default class App extends Component {
                 <Link to="/pointsofinterest">Points of Interest</Link>
                 <Link to="/logout">LogOut</Link>
                 </nav>
+                </header>
                 <Routes>
                     <Route path="/"element={<Home/>}/>
                     <Route path="/welcome" element={<Welcome/>}/>
@@ -54,7 +57,7 @@ export default class App extends Component {
                     <Route path="/logout" element={<LogOut/>}/>
                     <Route path="/favoriteplaces/:id" element={<Place/>}/>
                 </Routes>
-                <div>Footer</div>
+                <footer>©2021 Michele Godleske. All Rights Reserved.</footer>
 
             </Router>
             
