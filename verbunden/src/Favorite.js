@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import NewForm from './NewForm'
 import {Link} from 'react-router-dom'
 import Place from './Place'
+import Flip from 'react-reveal/Flip'
 
 
 let baseUrl = "http://localhost:8000"
@@ -124,25 +125,28 @@ export default class Favorite extends Component {
         console.log(this.state.favoritePlaces)
         return (
             <>
+
             <h1>My Favorite Places</h1>
             <NewForm baseUrl={baseUrl} addFavoritePlaces={this.addFavoritePlaces}/>
-            
             <table>
                 <tbody>
                     {this.state.favoritePlaces.map((favoritePlaces) => {
                         return (
+                            <Flip left>
                             <tr key={favoritePlaces.id}>
                                 <td><Link to={`/favoriteplaces/${favoritePlaces.id}`}>{favoritePlaces.place}</Link></td>
-                                <td onClick={() =>{this.showEditForm(favoritePlaces.id)}}>Edit</td>
-                                <td onClick={() => {this.deleteFavoritePlace(favoritePlaces.id)}}>X</td>
+                                <td onClick={() =>{this.showEditForm(favoritePlaces.id)}}>✏️</td>
+                                <td onClick={() => {this.deleteFavoritePlace(favoritePlaces.id)}}>x</td>
                             </tr>
+                            </Flip>
                         )
                     })}
                 </tbody>
             </table>
+            
             {
                 this.state.modalOpen &&
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className="Editform">
                     <label>Url:</label>
                     <input name="url" value={this.state.url} onChange={this.handleChange}/><br/>
                     <label>Place:</label>

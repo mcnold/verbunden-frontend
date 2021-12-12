@@ -80,8 +80,11 @@ export default class App extends Component {
             <input type="text" id="username" name="username"></input>
             <label htmlFor="password">password:</label>
             <input type="password" id="password" name="password"></input>
-            <input type="submit" value="login"></input>
+            <input type="submit" value="Login"></input>
         </form>
+                {
+                    this.state.userLoggedIn ? <h3>You are now logged in.</h3> : null
+                }
         
         </>
     )

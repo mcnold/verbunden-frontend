@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import img from './NicePng_travel-stamp-png_2995376.png'
 
 export default class Logout extends Component {
     constructor(props) {
@@ -18,7 +19,9 @@ export default class Logout extends Component {
         return (
             <>
             <h1>See you on your next journey!</h1>
-            <button onClick={this.logoutUser}>Log Out</button>
+            <img src={img} className="globe" alt="globe"></img>
+            <button className="btn" onClick={this.logoutUser}>Log Out</button>
+
             </>
         )
     }

@@ -34,8 +34,8 @@ export default function Place() {
                 <h2>{place.country}</h2>
                 <h3>{place.type}</h3>
                 <p>{place.latitude}, {place.longitude}</p>
-                <img src={place.url} alt="img"></img>
-                <Link to="/favoriteplaces">Back to Favorites</Link>
+                <img src={place.url} alt="img" className="Image"></img>
+                <Link to="/favoriteplaces"><h3>Back to Favorites</h3></Link>
             </> 
             : null
         }

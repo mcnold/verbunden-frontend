@@ -10,6 +10,7 @@ import LogOut from './LogOut'
 import PointsOfInterest from './PointsOfInterest'
 import Place from './Place'
 import './App.css'
+import Fade from 'react-reveal/Fade'
 
 export default class App extends Component {
     constructor(props) {
@@ -34,11 +35,12 @@ export default class App extends Component {
     render() {
         return (
             <Router>
+                <Fade left>
                 <header>
                 <nav>
+             
                 <Link to="/">Home</Link>
                 <Link to="/about">About</Link>
-                <Link to="/welcome">MyLanding</Link>
                 <Link to="/users/register">Register</Link>
                 <Link to="/users/login">Login</Link>
                 <Link to="/favoriteplaces">Favorite Places</Link>
@@ -46,6 +48,7 @@ export default class App extends Component {
                 <Link to="/logout">LogOut</Link>
                 </nav>
                 </header>
+                </Fade>
                 <Routes>
                     <Route path="/"element={<Home/>}/>
                     <Route path="/welcome" element={<Welcome/>}/>

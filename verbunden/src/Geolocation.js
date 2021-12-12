@@ -1,4 +1,6 @@
 import React, {Component} from 'react'
+import Roll from 'react-reveal/Roll'
+
 
 export default class Geolocation extends Component {
     constructor(props) {
@@ -64,11 +66,16 @@ export default class Geolocation extends Component {
 
         return (
             <div>
-                <td onClick={() =>{this.getGeolocation()}}>Find Me</td>
-                <td onClick={() =>{this.updateGeolocation()}}>Update My Location</td>
+                <Roll left>
+                <td className="geo" onClick={() =>{this.getGeolocation()}}>Find Me</td>
+                </Roll>
+                <br/>
+                <Roll right>
+                <td className="geo" onClick={() =>{this.updateGeolocation()}}>Update My Location</td>
+                </Roll>
                 {
                     this.state.isLoading ? "Loading...":
-                    <h4>My position is {this.state.latitude}, {this.state.longitude}</h4>
+                    <h3>My position is {this.state.latitude}, {this.state.longitude}</h3>
                 }
                 
             </div>

@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import Geolocation from './Geolocation'
 import Amadeus from 'amadeus'
+import Slide from 'react-reveal/Slide'
+import Lightspeed from 'react-reveal/LightSpeed'
 
 const amadeus = new Amadeus({
     clientId: 'M3RJq3uoqlOZYlK0g9Eau2AVrvCwuXgx',
@@ -60,25 +62,35 @@ export default class POI extends Component {
     render() {
         return (
             <>
+            <Slide left>
             <h1>Points of Interest</h1>
+            </Slide>
             <Geolocation favoritePlaces={this.state.favoritePlaces}/>
             <form onSubmit={this.getPOI}>
             <label>Find Points of Interest(Lat,Long)</label>
+            <Lightspeed right>
             <input
             id='latitude'
             type='text'
             value={this.state.latitude}
             onChange={this.handleLatChange}
             />
+            </Lightspeed>
+            <br/>
+            <Lightspeed left>
             <input
             id='longitude'
             type='text'
             value={this.state.longitude}
             onChange={this.handleLongChange}
             />
+            </Lightspeed>
+            <br/>
+            <Lightspeed right>
             <input type='submit'
             value='Get Info'
             />
+            </Lightspeed>
             </form>
             </>
         )

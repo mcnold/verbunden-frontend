@@ -13,7 +13,8 @@ export default class Register extends Component {
             password: '',
             favoritePlaces: [],
             modalOpen: false,
-            userLoggedIn: false
+            userLoggedIn: false,
+            userRegistered: false,
         }
     }
     register = async (e) => {
@@ -52,8 +53,9 @@ export default class Register extends Component {
             <input type="text" id="username" name="username"></input>
             <label htmlFor="password">password:</label>
             <input type="password" id="password" name="password"></input>
-            <input type="submit" value="register"></input>
+            <input type="submit" value="Register"></input>
         </form>
+
         </>
     )
 }
