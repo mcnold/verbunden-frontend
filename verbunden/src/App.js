@@ -37,7 +37,7 @@ export default class App extends Component {
     render() {
         return (
             <Router>
-                <Fade left>
+            
                 <header>
                 <nav>
              
@@ -51,7 +51,7 @@ export default class App extends Component {
                 <Link to="/logout">LogOut</Link>
                 </nav>
                 </header>
-                </Fade>
+
                 <Routes>
                     <Route path="/"element={<Home/>}/>
                     <Route path="/welcome" element={<Welcome/>}/>

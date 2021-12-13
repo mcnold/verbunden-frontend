@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Roll from 'react-reveal/Roll'
+import Slide from 'react-reveal/Slide'
 
 
 export default class Geolocation extends Component {
@@ -66,13 +66,13 @@ export default class Geolocation extends Component {
 
         return (
             <div>
-                <Roll left>
+                <Slide left>
                 <td className="geo" onClick={() =>{this.getGeolocation()}}>Find Me</td>
-                </Roll>
+                </Slide>
                 <br/>
-                <Roll right>
+                <Slide right>
                 <td className="geo" onClick={() =>{this.updateGeolocation()}}>Update My Location</td>
-                </Roll>
+                </Slide>
                 {
                     this.state.isLoading ? "Loading...":
                     <h3>My position is {this.state.latitude}, {this.state.longitude}</h3>

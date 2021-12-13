@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react'
 import {Link, useParams} from 'react-router-dom'
 import Fade from 'react-reveal/Fade'
+import Facebook from './Facebook'
+import Twitter from './Twitter'
+import Pinterest from './Pinterest'
 
 let baseUrl = "http://localhost:8000"
 
@@ -36,6 +39,11 @@ export default function Place() {
                 <h2>{place.country}</h2>
                 <h3>{place.type}</h3>
                 <p>{place.latitude}, {place.longitude}</p>
+                <div className="social">
+                <Facebook/>
+                <Twitter/>
+                <Pinterest/>
+                </div>
                 <img src={place.url} alt="img" className="Image"></img>
                 <Link to="/favoriteplaces"><h3>Back to Favorites</h3></Link>
                 </Fade>

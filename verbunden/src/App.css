@@ -10,7 +10,7 @@
   background: url(dariusz-sankowski-3OiYMgDKJ6k-unsplash.jpg);
   background-position: cover;
   background-repeat: no-repeat;
-  height: 1200px;
+  height: 1250px;
 }
 
 html, body, h1, h2, h3, h4, h5, small {
@@ -32,6 +32,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  transform: translateY(10px)
+}
+
 
 Link {
   color: burlywood;
@@ -41,13 +45,18 @@ Link {
   text-decoration: none;
 }
 
-
+.social {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  justify-content: center;
+}
 
 header {
   background: bisque;
   text-align: center;
-  height: 80px;
-  opacity: 40%;
+  height: 70px;
+  opacity: 60%;
   position: relative;
 
 
@@ -87,8 +96,8 @@ h3 {
 h4 {
   text-transform: uppercase;
   letter-spacing: 0.3em;
-  font-size: 10px;
-  color: beige;
+  font-size: 15px;
+  color:#55595c;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   justify-content: center;
   text-align: center;

@@ -129,6 +129,7 @@ export default class Favorite extends Component {
             <h1>My Favorite Places</h1>
             <NewForm baseUrl={baseUrl} addFavoritePlaces={this.addFavoritePlaces}/>
             <table>
+                <h4>Places I've Been</h4>
                 <tbody>
                     {this.state.favoritePlaces.map((favoritePlaces) => {
                         return (
