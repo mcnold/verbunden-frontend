@@ -125,7 +125,7 @@ export default class Favorite extends Component {
         console.log(this.state.favoritePlaces)
         return (
             <>
-
+            
             <h1>My Favorite Places</h1>
             <NewForm baseUrl={baseUrl} addFavoritePlaces={this.addFavoritePlaces}/>
             <table>
